@@ -16,47 +16,11 @@
      
       <div class="container">
         <h1 class="text-center">Registration</h1>
-            <div class="form-group">
-              <label for="">Name</label>
-              <input type="text" name="name" id="" class="form-control" value="{{old('name')}}" placeholder="" aria-describedby="helpId">
-             <span class="text-danger">
-                @error('name')
-                {{$message}}
-                @enderror
-             </span>
-              <!-- <small id="helpId" class="text-muted">Help text</small> -->
-            </div>
-            <div class="form-group">
-              <label for="">Email</label>
-              <input type="email" name="email" id="" class="form-control" value="{{old('email')}}" placeholder="" aria-describedby="helpId">
-              <!-- <small id="helpId" class="text-muted">Help text</small> -->
-              <span class="text-danger">
-                @error('email')
-                {{$message}}
-                @enderror
-             </span>
-            </div>
-            <div class="form-group">
-              <label for="">Password</label>
-              <input type="password" name="password" id=""  class="form-control" placeholder="" aria-describedby="helpId">
-              <!-- <small id="helpId" class="text-muted">Help text</small> -->
-              <span class="text-danger">
-                @error('password')
-                {{$message}}
-                @enderror
-             </span>
-            </div>
-            <div class="form-group">
-              <label for="">Confirm Password</label>
-              <input type="password" name="password_confirmation" id=""  class="form-control" placeholder="" aria-describedby="helpId">
-              <!-- <small id="helpId" class="text-muted">Help text</small> -->
-              <span class="text-danger">
-                @error('password_confirmation')
-                {{$message}}
-                @enderror
-             </span>
-            </div>
-      </div>
+           <x-input type="text" name="name" label="Please Enter Your Name" />
+           <x-input type="email" name="email" label="Please Enter Your email" />
+           <x-input type="password" name="password" label="Please Enter Your password" />
+           <x-input type="password" name="password_confirmation" label="Confirm Password" />
+           
       <button class="btn btn-primary">Submit</button>
 </form>
   </body>
