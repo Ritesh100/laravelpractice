@@ -5,6 +5,7 @@ use App\Http\Controllers\DemoController;
 use App\Http\Controllers\PhotoController;
 use App\Http\Controllers\SingleActionController;
 use App\Http\Controllers\RegistrationController;
+use App\Models\Customer;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,3 +25,8 @@ Route :: resource('/photo',PhotoController:: class);
 
 Route :: get('/register',[RegistrationController :: class,'forms']);
 Route :: post('/register',[RegistrationController::class,'register']);
+
+Route :: get('/customer',[RegistrationController ::class,'customer']);
+Route ::post('/customer',[RegistrationController :: class,'store']);
+
+
