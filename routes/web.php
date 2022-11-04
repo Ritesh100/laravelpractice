@@ -26,7 +26,16 @@ Route :: resource('/photo',PhotoController:: class);
 Route :: get('/register',[RegistrationController :: class,'forms']);
 Route :: post('/register',[RegistrationController::class,'register']);
 
+//open registration form
 Route :: get('/customer',[RegistrationController ::class,'customer']);
+//insert data into databse
 Route ::post('/customer',[RegistrationController :: class,'store']);
+//view table
+Route :: get('/customer/view',[RegistrationController ::class,'view']);
 
-
+//delete
+Route :: get('/customer/delete/{id}',[RegistrationController::class,'delete'])->name('customer.delete');
+//edit
+Route :: get('/customer/edit/{id}',[RegistrationController::class,'edit'])->name('customer.edit');
+//update 
+Route :: post('/customer/update/{id}',[RegistrationController::class,'update'])->name('customer.update');

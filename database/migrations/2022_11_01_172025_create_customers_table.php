@@ -17,7 +17,6 @@ return new class extends Migration
             $table->id('customer_id');
             $table->string('name',60);
             $table->string('email');
-            $table->enum('gender',["female","male","other"]);
             $table->text('address');
             $table->date('dob');
             $table->string('password');

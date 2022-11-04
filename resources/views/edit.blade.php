@@ -50,7 +50,7 @@ top: 13px;
                 <div class="col-md-6 mb-4">
 
                   <div class="form-outline">
-                    <input type="text" name="name" id="name" class="form-control form-control-lg" />
+                    <input type="text" name="name" id="name" class="form-control form-control-lg" value="{{$customer->name}}" />
                     <label class="form-label" for="Name">Name</label>
                     <span class="text-danger">
                         @error('name')
@@ -63,7 +63,7 @@ top: 13px;
                 <div class="col-md-6 mb-4">
 
                   <div class="form-outline">
-                    <input type="email" id="email" name="email" class="form-control form-control-lg" />
+                    <input type="email" id="email" name="email" class="form-control form-control-lg" value="{{$customer->email}}" />
                     <label class="form-label" for="email"> Email</label>
                     <span class="text-danger">
                         @error('email')
@@ -105,7 +105,7 @@ top: 13px;
                 <div class="col-md-6 mb-4 pb-2">
 
                   <div class="form-outline">
-                    <input type="text" name="country"  id="" class="form-control form-control-lg" />
+                    <input type="text" name="country"  value="{{$customer->country}}" id="" class="form-control form-control-lg" />
                     <label class="form-label" for="">Country</label>
                     <span class="text-danger">
                         @error('country')
@@ -118,7 +118,7 @@ top: 13px;
                 <div class="col-md-6 mb-4 pb-2">
 
                   <div class="form-outline">
-                    <input type="text" name="state" id="" class="form-control form-control-lg" />
+                    <input type="text" value="{{$customer->state}}" name="state" id="" class="form-control form-control-lg" />
                     <label class="form-label" for="">State</label>
                   </div>
                   <span class="text-danger">
@@ -130,7 +130,7 @@ top: 13px;
               </div>
               <div class="row">
                 <div class="col-md-12 mb-4 d-flex align-items-center">
-                <input type="text" name="address" class="form-control form-control-lg" id="" />
+                <input type="text" value="{{$customer->address}}" name="address" class="form-control form-control-lg" id="" />
                     <label for="address" class="form-label">Address</label>
                     <span class="text-danger">
                         @error('address')
@@ -143,7 +143,7 @@ top: 13px;
                 <div class="col-md-6 mb-4 d-flex align-items-center">
 
                   <div class="form-outline datepicker w-100">
-                    <input type="text" name="dob" class="form-control form-control-lg" id="birthdayDate" />
+                    <input type="text" name="dob" value="{{$customer->dob}}" class="form-control form-control-lg" id="birthdayDate" />
                     <label for="birthdayDate" class="form-label">Birthday</label>
                     <span class="text-danger">
                         @error('dob')
