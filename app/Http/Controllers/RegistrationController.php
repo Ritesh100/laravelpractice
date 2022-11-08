@@ -57,13 +57,34 @@ public function view(){
     $data = compact('customer');
     return view('customer-view')->with(($data));
 }
+//delete
 public function delete($id){
 $customer=Customer :: find($id);
 if(!is_null($customer)){
-    $customer->delete();
+    $customer->delete(); 
 }
 return redirect('/customer/view');
 }
+//force-delete
+//delete
+public function forceDelete($id){
+    $customer=Customer ::withTrashed()-> find($id);
+    if(!is_null($customer)){
+        $customer->forceDelete(); 
+    }
+    return redirect('/customer/view');
+    }
+
+    
+//restore
+public function restore($id){
+    $customer=Customer ::withTrashed()-> find($id);
+    if(!is_null($customer)){
+        $customer->restore(); 
+    }
+    return redirect('/customer/view');
+    }
+
 //edit ko function
 public function edit($id){
     $customer =Customer::find($id);
@@ -89,5 +110,12 @@ public function update($id,Request $request){
     $customer->dob=$request['dob']; 
    $customer->save(); 
    return redirect('/customer/view');
-}}
+}
+
+public function trash(){
+    $customers = Customer::onlyTrashed()->get();
+    $data = compact('customers');
+    return view('customer-trash')->with($data);
+}
+}
 

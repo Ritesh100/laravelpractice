@@ -6,6 +6,7 @@ use App\Http\Controllers\PhotoController;
 use App\Http\Controllers\SingleActionController;
 use App\Http\Controllers\RegistrationController;
 use App\Models\Customer;
+use Illuminate\Http\Request;
 
 /*
 |--------------------------------------------------------------------------
@@ -33,9 +34,37 @@ Route ::post('/customer',[RegistrationController :: class,'store']);
 //view table
 Route :: get('/customer/view',[RegistrationController ::class,'view']);
 
+//trash
+Route :: get('/customer/trash',[RegistrationController ::class,'trash']);
+
+//restore
+Route :: get('/customer/restore/{id}',[RegistrationController::class,'restore'])->name('customer.restore');
 //delete
 Route :: get('/customer/delete/{id}',[RegistrationController::class,'delete'])->name('customer.delete');
+
+//forcedelete
+Route :: get('/customer/force-delete/{id}',[RegistrationController::class,'forceDelete'])->name('customer.force-delete');
+
 //edit
 Route :: get('/customer/edit/{id}',[RegistrationController::class,'edit'])->name('customer.edit');
 //update 
 Route :: post('/customer/update/{id}',[RegistrationController::class,'update'])->name('customer.update');
+
+
+//session
+Route::get('get-all-session',function(){
+    $session =session()->all(); //create session
+    return($session); 
+});
+Route::get('set-all-session',function(Request $request){
+    $request->session->put('user_name','ritesh thapa');//set session
+    $request->session()->put('user_id','123');//set session
+    return redirect('get-all-sesion');
+
+});
+Route:: get('destroy-session',function(){
+    session()->forget(['user_name','user_id']);
+    //sessiom()->forget('user_id');
+     return redirect('get-all-session');
+
+});

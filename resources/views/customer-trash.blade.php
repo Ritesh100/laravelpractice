@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <title>Title</title>
+    <title>Customer Trash</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -18,9 +18,11 @@
         <a href="{{'/customer'}}">
         <button class="btn btn-primary d-inline-block m-2 float-right">Add</button>
 </a>
-<a href="{{'/customer/trash'}}">
-        <button class="btn btn-danger d-inline-block m-2 float-right">Go to Trash</button>
+<a href="{{'/customer/view'}}">
+        <button class="btn btn-primary d-inline-block m-2 float-right">Customer View</button>
 </a>
+
+
         <table class="table">
             <thead>
                 <tr>
@@ -36,7 +38,7 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach($customer as $customer)
+                @foreach($customers as $customer)
                 
                 <tr>
                     <td>{{$customer->name}}</td>
@@ -57,10 +59,10 @@
                   @endif
                   </td>
                     <td>
-                      <a href="{{route('customer.edit',['id'=>$customer->customer_id])}}">
-                    <button class="btn btn-primary" >Edit</button></a>
-                    <a href="{{url('/customer/delete/')}}/{{$customer->customer_id}}">
-                      <buttin class="btn btn-danger" >Trash </buttin>
+                      <a href="{{route('customer.restore',['id'=>$customer->customer_id])}}">
+                    <button class="btn btn-primary" >Restore</button></a>
+                    <a href="{{url('/customer/force-delete/')}}/{{$customer->customer_id}}">
+                      <buttin class="btn btn-danger" >Delete </buttin>
                     </a>
                     </td>
                 </tr>
